@@ -20,7 +20,7 @@ class i2c extends Module{
 
     })
 
-    //val STATE_IDLE :: STATE_START :: STATE_ADDR :: STATE_RW :: STATE_WACK :: STATE_DATA :: STATE_WACK2 :: STATE_STOP :: Nil = Enum(8)
+  
     val idle_state :: start_state :: addr_state :: rw_state /*:: wack_state*/ :: data_state :: wack2_state :: stop_state :: Nil = Enum(7)
     val state = RegInit(0.U(8.W))
     val count = RegInit(0.U(15.W))
