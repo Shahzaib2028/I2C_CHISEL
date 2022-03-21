@@ -3,7 +3,7 @@ import chisel3.util._
 
 
 
-class i2c extends Module{
+class i2c_master extends Module{
     val io = IO(new Bundle{
         val start = Input(Bool())
         val addr = Input(UInt(7.W))

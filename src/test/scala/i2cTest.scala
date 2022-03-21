@@ -9,7 +9,7 @@ import chiseltest.internal.VerilatorBackendAnnotation
 class i2cTest extends FreeSpec with ChiselScalatestTester {
 
   "i2c TEST" in {
-    test(new i2c()).withAnnotations(Seq(VerilatorBackendAnnotation)) { c =>    
+    test(new i2c_master()).withAnnotations(Seq(VerilatorBackendAnnotation)) { c =>    
 
         // c.io.start.poke(0.B)
         // c.clock.step(100)
