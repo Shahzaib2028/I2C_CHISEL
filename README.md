@@ -16,6 +16,7 @@ Read/Write Bit: A single bit specifying whether the master is sending data to th
 ACK/NACK Bit: Each frame in a message is followed by an acknowledge/no-acknowledge bit. If an address frame or data frame was successfully received, an ACK bit is returned to the sender from the receiving device.
 
 ##FRAME
+
 ![myimage-alt-tag](https://cdn.sparkfun.com/assets/learn_tutorials/8/2/I2C_Basic_Address_and_Data_Frames.jpg)
 
 
