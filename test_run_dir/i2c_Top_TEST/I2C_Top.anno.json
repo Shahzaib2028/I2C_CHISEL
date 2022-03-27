@@ -1,0 +1,24 @@
+[
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~I2C_Top|I2C_Top>io_sda",
+    "sources":[
+      "~I2C_Top|I2C_Top>reset"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~I2C_Top|I2C_Top>io_scl",
+    "sources":[
+      "~I2C_Top|I2C_Top>clock"
+    ]
+  },
+  {
+    "class":"firrtl.EmitCircuitAnnotation",
+    "emitter":"firrtl.VerilogEmitter"
+  },
+  {
+    "class":"firrtl.transforms.BlackBoxTargetDirAnno",
+    "targetDir":"test_run_dir/i2c_Top_TEST"
+  }
+]

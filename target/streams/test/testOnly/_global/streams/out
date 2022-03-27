@@ -1,10 +1,10 @@
-[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(i2cTest, org.scalatest.tools.Framework$$anon$1@2647be65, false, [SuiteSelector])[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mi2cTest:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- i2c TEST[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 4 seconds, 755 milliseconds.[0m[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning TaskDef(i2c_Top_Test, org.scalatest.tools.Framework$$anon$1@7e1b987d, false, [SuiteSelector])[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mi2c_Top_Test:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- i2c Top TEST[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 5 seconds, 416 milliseconds.[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 1[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 1, failed 0, canceled 0, ignored 0, pending 0[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mAll tests passed.[0m[0m
 [0m[[0m[0mdebug[0m] [0m[0mPassed tests:[0m
-[0m[[0m[0mdebug[0m] [0m[0m	i2cTest[0m
+[0m[[0m[0mdebug[0m] [0m[0m	i2c_Top_Test[0m

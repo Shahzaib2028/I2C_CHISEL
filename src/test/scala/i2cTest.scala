@@ -13,8 +13,8 @@ class i2cTest extends FreeSpec with ChiselScalatestTester {
 
         // c.io.start.poke(0.B)
         // c.clock.step(100)
-        val slave_addr = "b1010101".U
-        val slave_data = "b10101111".U
+        val slave_addr = "b1111000".U
+        val slave_data = "b10101011".U
 
         c.io.start.poke(1.B)
         c.io.addr.poke(slave_addr)

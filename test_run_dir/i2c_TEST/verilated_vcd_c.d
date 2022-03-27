@@ -1,5 +1,10 @@
-verilated_vcd_c.o: /usr/share/verilator/include/verilated_vcd_c.cpp \
- Vi2c.h /usr/share/verilator/include/verilated.h \
- /usr/share/verilator/include/verilatedos.h \
- /usr/share/verilator/include/verilated.h \
- /usr/share/verilator/include/verilated_vcd_c.h
+verilated_vcd_c.o: \
+  /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilated_vcd_c.cpp \
+  Vi2c_master.h \
+  /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilated_heavy.h \
+  /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilated.h \
+  /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilatedos.h \
+  /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilated_vcd_c.h \
+  /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilated_trace.h \
+  /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilated_trace_imp.cpp \
+  /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilated_intrinsics.h

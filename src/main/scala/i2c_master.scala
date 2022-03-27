@@ -24,8 +24,8 @@ class i2c_master extends Module{
     val idle_state :: start_state :: addr_state :: rw_state /*:: wack_state*/ :: data_state :: wack2_state :: stop_state :: Nil = Enum(7)
     val state = RegInit(0.U(8.W))
     val count = RegInit(0.U(15.W))
-    val saved_addr = RegInit(0.U(7.W))
-    val saved_data = RegInit(0.U(8.W))
+    // val io.addr = RegInit(0.U(7.W))
+    // val io.data = RegInit(0.U(8.W))
     val i2c_scl_enable = RegInit(1.B)
 
     val WACK1 = WireInit(0.U) // Acknowledge for address
@@ -76,8 +76,8 @@ class i2c_master extends Module{
 
             is(start_state){
                 io.i2c_sda := 0.B
-                saved_addr := io.addr
-                saved_data := io.data
+                // io.addr := io.addr
+                // io.data := io.data
                 io.ready := 1.B
                 io.stop := 0.B
                 state := addr_state
@@ -85,7 +85,7 @@ class i2c_master extends Module{
             }
 
             is(addr_state){
-                io.i2c_sda := saved_addr(count)
+                io.i2c_sda := io.addr(count)
                 io.ready := 0.B
                 io.stop := 0.B
                 when(count === 0.U){
@@ -116,7 +116,7 @@ class i2c_master extends Module{
 
             is(data_state){
                 io.i2c_sda := io.ack
-                io.i2c_sda := saved_data(count)
+                io.i2c_sda := io.data(count)
                 io.ready := 0.B
                 io.stop := 0.B
                 when(count === 0.U){

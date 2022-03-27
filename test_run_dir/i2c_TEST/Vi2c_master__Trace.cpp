@@ -4,66 +4,53 @@
 #include "Vi2c_master__Syms.h"
 
 
-//======================
-
-void Vi2c_master::traceChg(VerilatedVcd* vcdp, void* userthis, uint32_t code) {
-    // Callback from vcd->dump()
-    Vi2c_master* t = (Vi2c_master*)userthis;
-    Vi2c_master__Syms* __restrict vlSymsp = t->__VlSymsp;  // Setup global symbol table
-    if (vlSymsp->getClearActivity()) {
-        t->traceChgThis(vlSymsp, vcdp, code);
+void Vi2c_master::traceChgTop0(void* userp, VerilatedVcd* tracep) {
+    Vi2c_master__Syms* __restrict vlSymsp = static_cast<Vi2c_master__Syms*>(userp);
+    Vi2c_master* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    // Variables
+    if (VL_UNLIKELY(!vlSymsp->__Vm_activity)) return;
+    // Body
+    {
+        vlTOPp->traceChgSub0(userp, tracep);
     }
 }
 
-//======================
-
-
-void Vi2c_master::traceChgThis(Vi2c_master__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code) {
-    Vi2c_master* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    int c = code;
-    if (0 && vcdp && c) {}  // Prevent unused
+void Vi2c_master::traceChgSub0(void* userp, VerilatedVcd* tracep) {
+    Vi2c_master__Syms* __restrict vlSymsp = static_cast<Vi2c_master__Syms*>(userp);
+    Vi2c_master* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
+    vluint32_t* const oldp = tracep->oldp(vlSymsp->__Vm_baseCode + 1);
+    if (false && oldp) {}  // Prevent unused
     // Body
     {
-        if (VL_UNLIKELY((2U & vlTOPp->__Vm_traceActivity))) {
-            vlTOPp->traceChgThis__2(vlSymsp, vcdp, code);
+        if (VL_UNLIKELY(vlTOPp->__Vm_traceActivity[1U])) {
+            tracep->chgCData(oldp+0,(vlTOPp->i2c_master__DOT__state),8);
+            tracep->chgSData(oldp+1,(vlTOPp->i2c_master__DOT__count),15);
+            tracep->chgCData(oldp+2,(vlTOPp->i2c_master__DOT__saved_addr),7);
+            tracep->chgCData(oldp+3,(vlTOPp->i2c_master__DOT__saved_data),8);
+            tracep->chgBit(oldp+4,(vlTOPp->i2c_master__DOT__i2c_scl_enable));
         }
-        vlTOPp->traceChgThis__3(vlSymsp, vcdp, code);
-    }
-    // Final
-    vlTOPp->__Vm_traceActivity = 0U;
-}
-
-void Vi2c_master::traceChgThis__2(Vi2c_master__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code) {
-    Vi2c_master* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    int c = code;
-    if (0 && vcdp && c) {}  // Prevent unused
-    // Body
-    {
-        vcdp->chgBus(c+1,(vlTOPp->i2c_master__DOT__state),8);
-        vcdp->chgBus(c+9,(vlTOPp->i2c_master__DOT__count),15);
-        vcdp->chgBus(c+17,(vlTOPp->i2c_master__DOT__saved_addr),7);
-        vcdp->chgBus(c+25,(vlTOPp->i2c_master__DOT__saved_data),8);
-        vcdp->chgBit(c+33,(vlTOPp->i2c_master__DOT__i2c_scl_enable));
+        tracep->chgBit(oldp+5,(vlTOPp->clock));
+        tracep->chgBit(oldp+6,(vlTOPp->reset));
+        tracep->chgBit(oldp+7,(vlTOPp->io_start));
+        tracep->chgCData(oldp+8,(vlTOPp->io_addr),7);
+        tracep->chgCData(oldp+9,(vlTOPp->io_data),8);
+        tracep->chgBit(oldp+10,(vlTOPp->io_read_write));
+        tracep->chgBit(oldp+11,(vlTOPp->io_ack));
+        tracep->chgBit(oldp+12,(vlTOPp->io_data_ack));
+        tracep->chgBit(oldp+13,(vlTOPp->io_i2c_sda));
+        tracep->chgBit(oldp+14,(vlTOPp->io_i2c_scl));
+        tracep->chgBit(oldp+15,(vlTOPp->io_ready));
+        tracep->chgBit(oldp+16,(vlTOPp->io_stop));
     }
 }
 
-void Vi2c_master::traceChgThis__3(Vi2c_master__Syms* __restrict vlSymsp, VerilatedVcd* vcdp, uint32_t code) {
-    Vi2c_master* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
-    int c = code;
-    if (0 && vcdp && c) {}  // Prevent unused
+void Vi2c_master::traceCleanup(void* userp, VerilatedVcd* /*unused*/) {
+    Vi2c_master__Syms* __restrict vlSymsp = static_cast<Vi2c_master__Syms*>(userp);
+    Vi2c_master* const __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
     {
-        vcdp->chgBit(c+41,(vlTOPp->clock));
-        vcdp->chgBit(c+49,(vlTOPp->reset));
-        vcdp->chgBit(c+57,(vlTOPp->io_start));
-        vcdp->chgBus(c+65,(vlTOPp->io_addr),7);
-        vcdp->chgBus(c+73,(vlTOPp->io_data),8);
-        vcdp->chgBit(c+81,(vlTOPp->io_read_write));
-        vcdp->chgBit(c+89,(vlTOPp->io_ack));
-        vcdp->chgBit(c+97,(vlTOPp->io_data_ack));
-        vcdp->chgBit(c+105,(vlTOPp->io_i2c_sda));
-        vcdp->chgBit(c+113,(vlTOPp->io_i2c_scl));
-        vcdp->chgBit(c+121,(vlTOPp->io_ready));
-        vcdp->chgBit(c+129,(vlTOPp->io_stop));
+        vlSymsp->__Vm_activity = false;
+        vlTOPp->__Vm_traceActivity[0U] = 0U;
+        vlTOPp->__Vm_traceActivity[1U] = 0U;
     }
 }
