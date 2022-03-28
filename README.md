@@ -10,6 +10,7 @@ Jigsaw aims to be a helpful utility that provides the designers with pre-made us
 #### Caravan
 Caravan intends to be equipped with a fully fledged API for easily creating open source bus protocols in Chisel based designs.
 
+#### I2C Master Slave 
 
 ![myimage-alt-tag](https://www.circuitbasics.com/wp-content/uploads/2016/01/Introduction-to-I2C-Single-Master-Single-Slave.png)
 
