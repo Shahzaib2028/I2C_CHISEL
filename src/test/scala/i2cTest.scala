@@ -24,14 +24,14 @@ class i2cTest extends FreeSpec with ChiselScalatestTester {
 
         ///////////salve//////////
         // if(slave_addr == "b1010101".U){
-            c.io.ack.poke(0.B)
+            // c.io.ack.poke(0.B)
         // } else{
         //     c.io.ack.poke(1.B)
         // }
 
 
         // if(slave_data == "b10101111".U){
-            c.io.data_ack.poke(0.B)
+            // c.io.data_ack.poke(0.B)
         // } else{
         //     c.io.data_ack.poke(1.B)
         // }

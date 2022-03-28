@@ -1,6 +1,7 @@
-[0m[[0m[31merror[0m] [0m[0m/Users/shahzaib/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:51:17: missing argument list for method step in class testableClock[0m
-[0m[[0m[31merror[0m] [0m[0mUnapplied methods are only converted to functions when a function type is expected.[0m
-[0m[[0m[31merror[0m] [0m[0mYou can make this conversion explicit by writing `step _` or `step(_)` instead of `step`.[0m
-[0m[[0m[31merror[0m] [0m[0m        c.clock.step.poke(1)[0m
-[0m[[0m[31merror[0m] [0m[0m                ^[0m
-[0m[[0m[31merror[0m] [0m[0mone error found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2cTest.scala:27:18: value ack is not a member of chisel3.Bundle{val start: chisel3.Bool; val addr: chisel3.UInt; val data: chisel3.UInt; val read_write: chisel3.Bool; val i2c_sda: chisel3.Bool; val i2c_scl: chisel3.Bool; val ready: chisel3.Bool; val stop: chisel3.Bool; val i2c_intr: chisel3.Bool}[0m
+[0m[[0m[31merror[0m] [0m[0m            c.io.ack.poke(0.B)[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2cTest.scala:34:18: value data_ack is not a member of chisel3.Bundle{val start: chisel3.Bool; val addr: chisel3.UInt; val data: chisel3.UInt; val read_write: chisel3.Bool; val i2c_sda: chisel3.Bool; val i2c_scl: chisel3.Bool; val ready: chisel3.Bool; val stop: chisel3.Bool; val i2c_intr: chisel3.Bool}[0m
+[0m[[0m[31merror[0m] [0m[0m            c.io.data_ack.poke(0.B)[0m
+[0m[[0m[31merror[0m] [0m[0m                 ^[0m
+[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m

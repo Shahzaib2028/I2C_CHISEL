@@ -1,2 +1,9 @@
 1647857514515:testOnly i2cTest -- -DwriteVcd=1
 1648381237546:testOnly i2c_Top_Test -- -DwriteVcd=1
+1648464014981:testOnly i2cHarnessTest -- -DwriteVcd=1
+1648464894120:exit
+1648464954763:testOnly i2cHarnessTest -- -DwriteVcd=1
+1648466743720:testOnly i2c_Top_Test -- -DwriteVcd=1
+1648467102207:testOnly i2cHarnessTest -- -DwriteVcd=1
+1648468114656:testOnly i2c_Top_Test -- -DwriteVcd=1
+1648468288691:testOnly i2cHarnessTest -- -DwriteVcd=1
