@@ -2,6 +2,14 @@
 
 I2C combines the best features of SPI and UARTs. With I2C, you can connect multiple slaves to a single master (like SPI) and you can have multiple masters controlling single, or multiple slaves. This is really useful when you want to have more than one microcontroller logging data to a single memory card or displaying text to a single LCD.
 
+I2C is implemented in chisel and it has generic interface which can be easily attached with any System on Chip (SoC) by using [Jigsaw](https://github.com/Shahzaib2028/jigsaw) framework and it also depends upon [Caravan](https://github.com/merledu/caravan).
+
+#### Jigsaw
+Jigsaw aims to be a helpful utility that provides the designers with pre-made useful peripherals + other ip blocks that provides re-usability and agile development of System On Chips.
+
+#### Caravan
+Caravan intends to be equipped with a fully fledged API for easily creating open source bus protocols in Chisel based designs.
+
 
 ![myimage-alt-tag](https://www.circuitbasics.com/wp-content/uploads/2016/01/Introduction-to-I2C-Single-Master-Single-Slave.png)
 
