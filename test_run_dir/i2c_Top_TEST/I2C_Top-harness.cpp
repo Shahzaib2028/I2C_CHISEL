@@ -23,6 +23,9 @@ class I2C_Top_api_t: public sim_api_t<VerilatorDataWrapper*> {
 
         sim_data.inputs.push_back(new VerilatorCData(&(dut->clock)));
         sim_data.inputs.push_back(new VerilatorCData(&(dut->reset)));
+        sim_data.inputs.push_back(new VerilatorCData(&(dut->io_sda_in)));
+        sim_data.inputs.push_back(new VerilatorCData(&(dut->io_we)));
+        sim_data.inputs.push_back(new VerilatorCData(&(dut->io_ren)));
         sim_data.inputs.push_back(new VerilatorCData(&(dut->io_addr)));
         sim_data.inputs.push_back(new VerilatorIData(&(dut->io_wdata)));
         sim_data.outputs.push_back(new VerilatorCData(&(dut->io_intr)));

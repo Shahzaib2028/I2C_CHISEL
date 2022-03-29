@@ -64,40 +64,46 @@ void VI2C_Top::traceInitThis__1(VI2C_Top__Syms* __restrict vlSymsp, VerilatedVcd
         vcdp->declBit(c+81,"reset", false,-1);
         vcdp->declBus(c+89,"io_wdata", false,-1, 31,0);
         vcdp->declBus(c+97,"io_addr", false,-1, 6,0);
-        vcdp->declBit(c+105,"io_sda", false,-1);
-        vcdp->declBit(c+113,"io_scl", false,-1);
-        vcdp->declBit(c+121,"io_intr", false,-1);
+        vcdp->declBit(c+105,"io_ren", false,-1);
+        vcdp->declBit(c+113,"io_we", false,-1);
+        vcdp->declBit(c+121,"io_sda_in", false,-1);
+        vcdp->declBit(c+129,"io_sda", false,-1);
+        vcdp->declBit(c+137,"io_scl", false,-1);
+        vcdp->declBit(c+145,"io_intr", false,-1);
         vcdp->declBit(c+73,"I2C_Top clock", false,-1);
         vcdp->declBit(c+81,"I2C_Top reset", false,-1);
         vcdp->declBus(c+89,"I2C_Top io_wdata", false,-1, 31,0);
         vcdp->declBus(c+97,"I2C_Top io_addr", false,-1, 6,0);
-        vcdp->declBit(c+105,"I2C_Top io_sda", false,-1);
-        vcdp->declBit(c+113,"I2C_Top io_scl", false,-1);
-        vcdp->declBit(c+121,"I2C_Top io_intr", false,-1);
+        vcdp->declBit(c+105,"I2C_Top io_ren", false,-1);
+        vcdp->declBit(c+113,"I2C_Top io_we", false,-1);
+        vcdp->declBit(c+121,"I2C_Top io_sda_in", false,-1);
+        vcdp->declBit(c+129,"I2C_Top io_sda", false,-1);
+        vcdp->declBit(c+137,"I2C_Top io_scl", false,-1);
+        vcdp->declBit(c+145,"I2C_Top io_intr", false,-1);
         vcdp->declBit(c+73,"I2C_Top i2c_clock", false,-1);
         vcdp->declBit(c+81,"I2C_Top i2c_reset", false,-1);
         vcdp->declBit(c+1,"I2C_Top i2c_io_start", false,-1);
         vcdp->declBus(c+9,"I2C_Top i2c_io_addr", false,-1, 6,0);
         vcdp->declBus(c+17,"I2C_Top i2c_io_data", false,-1, 7,0);
         vcdp->declBit(c+25,"I2C_Top i2c_io_read_write", false,-1);
-        vcdp->declBit(c+33,"I2C_Top i2c_io_data_ack", false,-1);
-        vcdp->declBit(c+129,"I2C_Top i2c_io_i2c_sda", false,-1);
-        vcdp->declBit(c+137,"I2C_Top i2c_io_i2c_scl", false,-1);
+        vcdp->declBit(c+33,"I2C_Top i2c_io_i2c_sda_in", false,-1);
+        vcdp->declBit(c+153,"I2C_Top i2c_io_i2c_sda", false,-1);
+        vcdp->declBit(c+161,"I2C_Top i2c_io_i2c_scl", false,-1);
         vcdp->declBit(c+41,"I2C_Top i2c_io_i2c_intr", false,-1);
         vcdp->declBit(c+1,"I2C_Top addr_start_bit", false,-1);
         vcdp->declBus(c+9,"I2C_Top addr_slave_addr", false,-1, 6,0);
         vcdp->declBus(c+17,"I2C_Top addr_data", false,-1, 7,0);
         vcdp->declBit(c+25,"I2C_Top addr_read_write_bit", false,-1);
-        vcdp->declBit(c+33,"I2C_Top addr_data_ack", false,-1);
+        vcdp->declBit(c+33,"I2C_Top addr_sda_in", false,-1);
         vcdp->declBit(c+73,"I2C_Top i2c clock", false,-1);
         vcdp->declBit(c+81,"I2C_Top i2c reset", false,-1);
         vcdp->declBit(c+1,"I2C_Top i2c io_start", false,-1);
         vcdp->declBus(c+9,"I2C_Top i2c io_addr", false,-1, 6,0);
         vcdp->declBus(c+17,"I2C_Top i2c io_data", false,-1, 7,0);
         vcdp->declBit(c+25,"I2C_Top i2c io_read_write", false,-1);
-        vcdp->declBit(c+33,"I2C_Top i2c io_data_ack", false,-1);
-        vcdp->declBit(c+129,"I2C_Top i2c io_i2c_sda", false,-1);
-        vcdp->declBit(c+137,"I2C_Top i2c io_i2c_scl", false,-1);
+        vcdp->declBit(c+33,"I2C_Top i2c io_i2c_sda_in", false,-1);
+        vcdp->declBit(c+153,"I2C_Top i2c io_i2c_sda", false,-1);
+        vcdp->declBit(c+161,"I2C_Top i2c io_i2c_scl", false,-1);
         vcdp->declBit(c+41,"I2C_Top i2c io_i2c_intr", false,-1);
         vcdp->declBus(c+49,"I2C_Top i2c state", false,-1, 7,0);
         vcdp->declBus(c+57,"I2C_Top i2c count", false,-1, 14,0);
@@ -116,7 +122,7 @@ void VI2C_Top::traceFullThis__1(VI2C_Top__Syms* __restrict vlSymsp, VerilatedVcd
         vcdp->fullBus(c+9,(vlTOPp->I2C_Top__DOT__addr_slave_addr),7);
         vcdp->fullBus(c+17,(vlTOPp->I2C_Top__DOT__addr_data),8);
         vcdp->fullBit(c+25,(vlTOPp->I2C_Top__DOT__addr_read_write_bit));
-        vcdp->fullBit(c+33,(vlTOPp->I2C_Top__DOT__addr_data_ack));
+        vcdp->fullBit(c+33,(vlTOPp->I2C_Top__DOT__addr_sda_in));
         vcdp->fullBit(c+41,(vlTOPp->I2C_Top__DOT__i2c__DOT__intr_done));
         vcdp->fullBus(c+49,(vlTOPp->I2C_Top__DOT__i2c__DOT__state),8);
         vcdp->fullBus(c+57,(vlTOPp->I2C_Top__DOT__i2c__DOT__count),15);
@@ -125,10 +131,13 @@ void VI2C_Top::traceFullThis__1(VI2C_Top__Syms* __restrict vlSymsp, VerilatedVcd
         vcdp->fullBit(c+81,(vlTOPp->reset));
         vcdp->fullBus(c+89,(vlTOPp->io_wdata),32);
         vcdp->fullBus(c+97,(vlTOPp->io_addr),7);
-        vcdp->fullBit(c+105,(vlTOPp->io_sda));
-        vcdp->fullBit(c+113,(vlTOPp->io_scl));
-        vcdp->fullBit(c+121,(vlTOPp->io_intr));
-        vcdp->fullBit(c+129,(((IData)(vlTOPp->reset) 
+        vcdp->fullBit(c+105,(vlTOPp->io_ren));
+        vcdp->fullBit(c+113,(vlTOPp->io_we));
+        vcdp->fullBit(c+121,(vlTOPp->io_sda_in));
+        vcdp->fullBit(c+129,(vlTOPp->io_sda));
+        vcdp->fullBit(c+137,(vlTOPp->io_scl));
+        vcdp->fullBit(c+145,(vlTOPp->io_intr));
+        vcdp->fullBit(c+153,(((IData)(vlTOPp->reset) 
                               | ((0U == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
                                  | ((1U != (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
                                     & ((2U == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
@@ -140,17 +149,22 @@ void VI2C_Top::traceFullThis__1(VI2C_Top__Syms* __restrict vlSymsp, VerilatedVcd
                                        ((3U == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
                                          ? (IData)(vlTOPp->I2C_Top__DOT__addr_read_write_bit)
                                          : ((4U == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
-                                             ? ((7U 
-                                                 >= (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count))
-                                                 ? 
-                                                (0xffU 
-                                                 & ((IData)(vlTOPp->I2C_Top__DOT__addr_data) 
-                                                    >> (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count)))
-                                                 : 0U)
+                                             ? (IData)(vlTOPp->I2C_Top__DOT__addr_sda_in)
                                              : ((5U 
-                                                 != (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
-                                                | (IData)(vlTOPp->I2C_Top__DOT__addr_data_ack))))))))));
-        vcdp->fullBit(c+137,((1U & ((~ (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__i2c_scl_enable)) 
+                                                 == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
+                                                 ? 
+                                                ((7U 
+                                                  >= (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count))
+                                                  ? 
+                                                 (0xffU 
+                                                  & ((IData)(vlTOPp->I2C_Top__DOT__addr_data) 
+                                                     >> (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count)))
+                                                  : 0U)
+                                                 : 
+                                                ((6U 
+                                                  != (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
+                                                 | (IData)(vlTOPp->I2C_Top__DOT__addr_sda_in)))))))))));
+        vcdp->fullBit(c+161,((1U & ((~ (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__i2c_scl_enable)) 
                                     | (~ (IData)(vlTOPp->clock))))));
     }
 }

@@ -49,7 +49,7 @@ void VI2C_Top::eval() {
             Verilated::debug(1);
             __Vchange = _change_request(vlSymsp);
             Verilated::debug(__Vsaved_debug);
-            VL_FATAL_MT("I2C_Top.v", 146, "",
+            VL_FATAL_MT("I2C_Top.v", 152, "",
                 "Verilated model didn't converge\n"
                 "- See DIDNOTCONVERGE in the Verilator manual");
         } else {
@@ -75,7 +75,7 @@ void VI2C_Top::_eval_initial_loop(VI2C_Top__Syms* __restrict vlSymsp) {
             Verilated::debug(1);
             __Vchange = _change_request(vlSymsp);
             Verilated::debug(__Vsaved_debug);
-            VL_FATAL_MT("I2C_Top.v", 146, "",
+            VL_FATAL_MT("I2C_Top.v", 152, "",
                 "Verilated model didn't DC converge\n"
                 "- See DIDNOTCONVERGE in the Verilator manual");
         } else {
@@ -91,12 +91,12 @@ VL_INLINE_OPT void VI2C_Top::_sequent__TOP__1(VI2C_Top__Syms* __restrict vlSymsp
     if (vlTOPp->reset) {
         vlTOPp->I2C_Top__DOT__addr_start_bit = 0U;
     } else {
-        if ((0U == (IData)(vlTOPp->io_addr))) {
-            vlTOPp->I2C_Top__DOT__addr_start_bit = 
-                (1U & vlTOPp->io_wdata);
-        } else {
-            if ((4U != (IData)(vlTOPp->io_addr))) {
-                if ((0x10U != (IData)(vlTOPp->io_addr))) {
+        if (((~ (IData)(vlTOPp->io_ren)) & (IData)(vlTOPp->io_we))) {
+            if ((0U == (IData)(vlTOPp->io_addr))) {
+                vlTOPp->I2C_Top__DOT__addr_start_bit 
+                    = (1U & vlTOPp->io_wdata);
+            } else {
+                if ((4U != (IData)(vlTOPp->io_addr))) {
                     vlTOPp->I2C_Top__DOT__addr_start_bit 
                         = vlTOPp->I2C_Top__DOT___GEN_12;
                 }
@@ -106,39 +106,23 @@ VL_INLINE_OPT void VI2C_Top::_sequent__TOP__1(VI2C_Top__Syms* __restrict vlSymsp
     if (vlTOPp->reset) {
         vlTOPp->I2C_Top__DOT__addr_slave_addr = 0U;
     } else {
-        if ((0U != (IData)(vlTOPp->io_addr))) {
-            if ((4U == (IData)(vlTOPp->io_addr))) {
+        if (((~ (IData)(vlTOPp->io_ren)) & (IData)(vlTOPp->io_we))) {
+            if ((0U != (IData)(vlTOPp->io_addr))) {
                 vlTOPp->I2C_Top__DOT__addr_slave_addr 
-                    = (0x7fU & vlTOPp->io_wdata);
-            } else {
-                if ((0x10U != (IData)(vlTOPp->io_addr))) {
-                    vlTOPp->I2C_Top__DOT__addr_slave_addr 
-                        = vlTOPp->I2C_Top__DOT___GEN_13;
-                }
+                    = (0x7fU & ((4U == (IData)(vlTOPp->io_addr))
+                                 ? vlTOPp->io_wdata
+                                 : (IData)(vlTOPp->I2C_Top__DOT___GEN_13)));
             }
         }
     }
     if (vlTOPp->reset) {
         vlTOPp->I2C_Top__DOT__addr_data = 0U;
     } else {
-        if ((0U != (IData)(vlTOPp->io_addr))) {
-            if ((4U != (IData)(vlTOPp->io_addr))) {
-                vlTOPp->I2C_Top__DOT__addr_data = (0xffU 
-                                                   & ((0x10U 
-                                                       == (IData)(vlTOPp->io_addr))
-                                                       ? vlTOPp->io_wdata
-                                                       : (IData)(vlTOPp->I2C_Top__DOT___GEN_14)));
-            }
-        }
-    }
-    if (vlTOPp->reset) {
-        vlTOPp->I2C_Top__DOT__addr_data_ack = 0U;
-    } else {
-        if ((0U != (IData)(vlTOPp->io_addr))) {
-            if ((4U != (IData)(vlTOPp->io_addr))) {
-                if ((0x10U != (IData)(vlTOPp->io_addr))) {
-                    vlTOPp->I2C_Top__DOT__addr_data_ack 
-                        = vlTOPp->I2C_Top__DOT___GEN_11;
+        if (((~ (IData)(vlTOPp->io_ren)) & (IData)(vlTOPp->io_we))) {
+            if ((0U != (IData)(vlTOPp->io_addr))) {
+                if ((4U != (IData)(vlTOPp->io_addr))) {
+                    vlTOPp->I2C_Top__DOT__addr_data 
+                        = vlTOPp->I2C_Top__DOT___GEN_9;
                 }
             }
         }
@@ -146,11 +130,23 @@ VL_INLINE_OPT void VI2C_Top::_sequent__TOP__1(VI2C_Top__Syms* __restrict vlSymsp
     if (vlTOPp->reset) {
         vlTOPp->I2C_Top__DOT__addr_read_write_bit = 0U;
     } else {
-        if ((0U != (IData)(vlTOPp->io_addr))) {
-            if ((4U != (IData)(vlTOPp->io_addr))) {
-                if ((0x10U != (IData)(vlTOPp->io_addr))) {
+        if (((~ (IData)(vlTOPp->io_ren)) & (IData)(vlTOPp->io_we))) {
+            if ((0U != (IData)(vlTOPp->io_addr))) {
+                if ((4U != (IData)(vlTOPp->io_addr))) {
                     vlTOPp->I2C_Top__DOT__addr_read_write_bit 
-                        = vlTOPp->I2C_Top__DOT___GEN_9;
+                        = vlTOPp->I2C_Top__DOT___GEN_10;
+                }
+            }
+        }
+    }
+    if (vlTOPp->reset) {
+        vlTOPp->I2C_Top__DOT__addr_sda_in = 0U;
+    } else {
+        if (((~ (IData)(vlTOPp->io_ren)) & (IData)(vlTOPp->io_we))) {
+            if ((0U != (IData)(vlTOPp->io_addr))) {
+                if ((4U != (IData)(vlTOPp->io_addr))) {
+                    vlTOPp->I2C_Top__DOT__addr_sda_in 
+                        = vlTOPp->I2C_Top__DOT___GEN_11;
                 }
             }
         }
@@ -160,7 +156,7 @@ VL_INLINE_OPT void VI2C_Top::_sequent__TOP__1(VI2C_Top__Syms* __restrict vlSymsp
                                                 == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
                                                | (1U 
                                                   == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))) 
-                                              | (6U 
+                                              | (7U 
                                                  == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))))));
     if (vlTOPp->reset) {
         vlTOPp->I2C_Top__DOT__i2c__DOT__intr_done = 0U;
@@ -171,7 +167,7 @@ VL_INLINE_OPT void VI2C_Top::_sequent__TOP__1(VI2C_Top__Syms* __restrict vlSymsp
             } else {
                 if ((1U != (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))) {
                     vlTOPp->I2C_Top__DOT__i2c__DOT__intr_done 
-                        = vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_34;
+                        = vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_42;
                 }
             }
         }
@@ -183,7 +179,7 @@ VL_INLINE_OPT void VI2C_Top::_sequent__TOP__1(VI2C_Top__Syms* __restrict vlSymsp
             if ((0U != (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))) {
                 vlTOPp->I2C_Top__DOT__i2c__DOT__count 
                     = ((1U == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
-                        ? 6U : (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_33));
+                        ? 6U : (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_41));
             }
         }
     }
@@ -196,8 +192,8 @@ VL_INLINE_OPT void VI2C_Top::_sequent__TOP__1(VI2C_Top__Syms* __restrict vlSymsp
                                                  ((IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count) 
                                                   - (IData)(1U))));
     vlTOPp->I2C_Top__DOT__i2c__DOT__state = ((IData)(vlTOPp->reset)
-                                              ? 0U : (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_51));
-    vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_34 = ((2U 
+                                              ? 0U : (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_59));
+    vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_42 = ((2U 
                                                 == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
                                                 ? (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__intr_done)
                                                 : (
@@ -214,9 +210,13 @@ VL_INLINE_OPT void VI2C_Top::_sequent__TOP__1(VI2C_Top__Syms* __restrict vlSymsp
                                                       ? (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__intr_done)
                                                       : 
                                                      ((6U 
-                                                       == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
-                                                      | (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__intr_done))))));
-    vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_33 = ((2U 
+                                                       == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
+                                                       ? (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__intr_done)
+                                                       : 
+                                                      ((7U 
+                                                        == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
+                                                       | (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__intr_done)))))));
+    vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_41 = ((2U 
                                                 == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
                                                 ? (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_5)
                                                 : (
@@ -229,8 +229,12 @@ VL_INLINE_OPT void VI2C_Top::_sequent__TOP__1(VI2C_Top__Syms* __restrict vlSymsp
                                                     : 
                                                    ((4U 
                                                      == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
-                                                     ? (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_5)
-                                                     : (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count))));
+                                                     ? (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count)
+                                                     : 
+                                                    ((5U 
+                                                      == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
+                                                      ? (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_5)
+                                                      : (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count)))));
 }
 
 void VI2C_Top::_settle__TOP__2(VI2C_Top__Syms* __restrict vlSymsp) {
@@ -238,44 +242,50 @@ void VI2C_Top::_settle__TOP__2(VI2C_Top__Syms* __restrict vlSymsp) {
     VI2C_Top* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
     vlTOPp->io_intr = vlTOPp->I2C_Top__DOT__i2c__DOT__intr_done;
-    vlTOPp->I2C_Top__DOT___GEN_12 = ((8U == (IData)(vlTOPp->io_addr))
+    vlTOPp->I2C_Top__DOT___GEN_12 = ((0x10U == (IData)(vlTOPp->io_addr))
                                       ? (IData)(vlTOPp->I2C_Top__DOT__addr_start_bit)
-                                      : ((0xcU == (IData)(vlTOPp->io_addr))
+                                      : ((8U == (IData)(vlTOPp->io_addr))
                                           ? (IData)(vlTOPp->I2C_Top__DOT__addr_start_bit)
-                                          : ((0x14U 
+                                          : ((0xcU 
                                               == (IData)(vlTOPp->io_addr)) 
                                              & (IData)(vlTOPp->I2C_Top__DOT__addr_start_bit))));
-    vlTOPp->I2C_Top__DOT___GEN_13 = ((8U == (IData)(vlTOPp->io_addr))
+    vlTOPp->I2C_Top__DOT___GEN_13 = ((0x10U == (IData)(vlTOPp->io_addr))
                                       ? (IData)(vlTOPp->I2C_Top__DOT__addr_slave_addr)
-                                      : ((0xcU == (IData)(vlTOPp->io_addr))
+                                      : ((8U == (IData)(vlTOPp->io_addr))
                                           ? (IData)(vlTOPp->I2C_Top__DOT__addr_slave_addr)
-                                          : ((0x14U 
+                                          : ((0xcU 
                                               == (IData)(vlTOPp->io_addr))
                                               ? (IData)(vlTOPp->I2C_Top__DOT__addr_slave_addr)
                                               : 0U)));
-    vlTOPp->I2C_Top__DOT___GEN_14 = ((8U == (IData)(vlTOPp->io_addr))
-                                      ? (IData)(vlTOPp->I2C_Top__DOT__addr_data)
-                                      : ((0xcU == (IData)(vlTOPp->io_addr))
-                                          ? (IData)(vlTOPp->I2C_Top__DOT__addr_data)
-                                          : ((0x14U 
-                                              == (IData)(vlTOPp->io_addr))
-                                              ? (IData)(vlTOPp->I2C_Top__DOT__addr_data)
-                                              : 0U)));
     vlTOPp->io_scl = (1U & ((~ (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__i2c_scl_enable)) 
                             | (~ (IData)(vlTOPp->clock))));
-    vlTOPp->I2C_Top__DOT___GEN_9 = (1U & ((8U == (IData)(vlTOPp->io_addr))
-                                           ? vlTOPp->io_wdata
-                                           : (IData)(vlTOPp->I2C_Top__DOT__addr_read_write_bit)));
-    vlTOPp->I2C_Top__DOT___GEN_11 = (1U & ((8U == (IData)(vlTOPp->io_addr))
-                                            ? (IData)(vlTOPp->I2C_Top__DOT__addr_data_ack)
-                                            : ((0xcU 
+    vlTOPp->I2C_Top__DOT___GEN_9 = (0xffU & ((0x10U 
+                                              == (IData)(vlTOPp->io_addr))
+                                              ? vlTOPp->io_wdata
+                                              : ((8U 
+                                                  == (IData)(vlTOPp->io_addr))
+                                                  ? (IData)(vlTOPp->I2C_Top__DOT__addr_data)
+                                                  : 
+                                                 ((0xcU 
+                                                   == (IData)(vlTOPp->io_addr))
+                                                   ? (IData)(vlTOPp->I2C_Top__DOT__addr_data)
+                                                   : 0U))));
+    vlTOPp->I2C_Top__DOT___GEN_10 = (1U & ((0x10U == (IData)(vlTOPp->io_addr))
+                                            ? (IData)(vlTOPp->I2C_Top__DOT__addr_read_write_bit)
+                                            : ((8U 
                                                 == (IData)(vlTOPp->io_addr))
-                                                ? (IData)(vlTOPp->I2C_Top__DOT__addr_data_ack)
+                                                ? vlTOPp->io_wdata
+                                                : (IData)(vlTOPp->I2C_Top__DOT__addr_read_write_bit))));
+    vlTOPp->I2C_Top__DOT___GEN_11 = (1U & ((0x10U == (IData)(vlTOPp->io_addr))
+                                            ? (IData)(vlTOPp->I2C_Top__DOT__addr_sda_in)
+                                            : ((8U 
+                                                == (IData)(vlTOPp->io_addr))
+                                                ? (IData)(vlTOPp->I2C_Top__DOT__addr_sda_in)
                                                 : (
-                                                   (0x14U 
+                                                   (0xcU 
                                                     == (IData)(vlTOPp->io_addr))
                                                     ? vlTOPp->io_wdata
-                                                    : (IData)(vlTOPp->I2C_Top__DOT__addr_data_ack)))));
+                                                    : (IData)(vlTOPp->I2C_Top__DOT__addr_sda_in)))));
     vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_5 = (0x7fffU 
                                               & ((0U 
                                                   == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count))
@@ -283,7 +293,7 @@ void VI2C_Top::_settle__TOP__2(VI2C_Top__Syms* __restrict vlSymsp) {
                                                   : 
                                                  ((IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count) 
                                                   - (IData)(1U))));
-    vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_34 = ((2U 
+    vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_42 = ((2U 
                                                 == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
                                                 ? (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__intr_done)
                                                 : (
@@ -300,9 +310,13 @@ void VI2C_Top::_settle__TOP__2(VI2C_Top__Syms* __restrict vlSymsp) {
                                                       ? (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__intr_done)
                                                       : 
                                                      ((6U 
-                                                       == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
-                                                      | (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__intr_done))))));
-    vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_51 = ((IData)(vlTOPp->reset)
+                                                       == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
+                                                       ? (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__intr_done)
+                                                       : 
+                                                      ((7U 
+                                                        == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
+                                                       | (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__intr_done)))))));
+    vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_59 = ((IData)(vlTOPp->reset)
                                                 ? 0U
                                                 : (
                                                    (0U 
@@ -331,15 +345,22 @@ void VI2C_Top::_settle__TOP__2(VI2C_Top__Syms* __restrict vlSymsp) {
                                                       ((4U 
                                                         == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
                                                         ? 
-                                                       ((0U 
-                                                         == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count))
-                                                         ? 5U
-                                                         : 4U)
+                                                       ((IData)(vlTOPp->I2C_Top__DOT__addr_sda_in)
+                                                         ? 7U
+                                                         : 5U)
                                                         : 
                                                        ((5U 
                                                          == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
-                                                         ? 6U
-                                                         : 0U)))))));
+                                                         ? 
+                                                        ((0U 
+                                                          == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count))
+                                                          ? 6U
+                                                          : 5U)
+                                                         : 
+                                                        ((6U 
+                                                          == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
+                                                          ? 7U
+                                                          : 0U))))))));
     vlTOPp->io_sda = ((IData)(vlTOPp->reset) | ((0U 
                                                  == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
                                                 | ((1U 
@@ -361,19 +382,23 @@ void VI2C_Top::_settle__TOP__2(VI2C_Top__Syms* __restrict vlSymsp) {
                                                         : 
                                                        ((4U 
                                                          == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
-                                                         ? 
-                                                        ((7U 
-                                                          >= (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count))
-                                                          ? 
-                                                         (0xffU 
-                                                          & ((IData)(vlTOPp->I2C_Top__DOT__addr_data) 
-                                                             >> (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count)))
-                                                          : 0U)
+                                                         ? (IData)(vlTOPp->I2C_Top__DOT__addr_sda_in)
                                                          : 
                                                         ((5U 
-                                                          != (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
-                                                         | (IData)(vlTOPp->I2C_Top__DOT__addr_data_ack))))))));
-    vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_33 = ((2U 
+                                                          == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
+                                                          ? 
+                                                         ((7U 
+                                                           >= (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count))
+                                                           ? 
+                                                          (0xffU 
+                                                           & ((IData)(vlTOPp->I2C_Top__DOT__addr_data) 
+                                                              >> (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count)))
+                                                           : 0U)
+                                                          : 
+                                                         ((6U 
+                                                           != (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
+                                                          | (IData)(vlTOPp->I2C_Top__DOT__addr_sda_in)))))))));
+    vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_41 = ((2U 
                                                 == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
                                                 ? (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_5)
                                                 : (
@@ -386,53 +411,63 @@ void VI2C_Top::_settle__TOP__2(VI2C_Top__Syms* __restrict vlSymsp) {
                                                     : 
                                                    ((4U 
                                                      == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
-                                                     ? (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_5)
-                                                     : (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count))));
+                                                     ? (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count)
+                                                     : 
+                                                    ((5U 
+                                                      == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
+                                                      ? (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_5)
+                                                      : (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count)))));
 }
 
 VL_INLINE_OPT void VI2C_Top::_combo__TOP__3(VI2C_Top__Syms* __restrict vlSymsp) {
     VL_DEBUG_IF(VL_DBG_MSGF("+    VI2C_Top::_combo__TOP__3\n"); );
     VI2C_Top* __restrict vlTOPp VL_ATTR_UNUSED = vlSymsp->TOPp;
     // Body
-    vlTOPp->I2C_Top__DOT___GEN_12 = ((8U == (IData)(vlTOPp->io_addr))
+    vlTOPp->I2C_Top__DOT___GEN_12 = ((0x10U == (IData)(vlTOPp->io_addr))
                                       ? (IData)(vlTOPp->I2C_Top__DOT__addr_start_bit)
-                                      : ((0xcU == (IData)(vlTOPp->io_addr))
+                                      : ((8U == (IData)(vlTOPp->io_addr))
                                           ? (IData)(vlTOPp->I2C_Top__DOT__addr_start_bit)
-                                          : ((0x14U 
+                                          : ((0xcU 
                                               == (IData)(vlTOPp->io_addr)) 
                                              & (IData)(vlTOPp->I2C_Top__DOT__addr_start_bit))));
-    vlTOPp->I2C_Top__DOT___GEN_13 = ((8U == (IData)(vlTOPp->io_addr))
+    vlTOPp->I2C_Top__DOT___GEN_13 = ((0x10U == (IData)(vlTOPp->io_addr))
                                       ? (IData)(vlTOPp->I2C_Top__DOT__addr_slave_addr)
-                                      : ((0xcU == (IData)(vlTOPp->io_addr))
+                                      : ((8U == (IData)(vlTOPp->io_addr))
                                           ? (IData)(vlTOPp->I2C_Top__DOT__addr_slave_addr)
-                                          : ((0x14U 
+                                          : ((0xcU 
                                               == (IData)(vlTOPp->io_addr))
                                               ? (IData)(vlTOPp->I2C_Top__DOT__addr_slave_addr)
                                               : 0U)));
-    vlTOPp->I2C_Top__DOT___GEN_14 = ((8U == (IData)(vlTOPp->io_addr))
-                                      ? (IData)(vlTOPp->I2C_Top__DOT__addr_data)
-                                      : ((0xcU == (IData)(vlTOPp->io_addr))
-                                          ? (IData)(vlTOPp->I2C_Top__DOT__addr_data)
-                                          : ((0x14U 
+    vlTOPp->I2C_Top__DOT___GEN_9 = (0xffU & ((0x10U 
                                               == (IData)(vlTOPp->io_addr))
-                                              ? (IData)(vlTOPp->I2C_Top__DOT__addr_data)
-                                              : 0U)));
-    vlTOPp->I2C_Top__DOT___GEN_11 = (1U & ((8U == (IData)(vlTOPp->io_addr))
-                                            ? (IData)(vlTOPp->I2C_Top__DOT__addr_data_ack)
-                                            : ((0xcU 
+                                              ? vlTOPp->io_wdata
+                                              : ((8U 
+                                                  == (IData)(vlTOPp->io_addr))
+                                                  ? (IData)(vlTOPp->I2C_Top__DOT__addr_data)
+                                                  : 
+                                                 ((0xcU 
+                                                   == (IData)(vlTOPp->io_addr))
+                                                   ? (IData)(vlTOPp->I2C_Top__DOT__addr_data)
+                                                   : 0U))));
+    vlTOPp->I2C_Top__DOT___GEN_10 = (1U & ((0x10U == (IData)(vlTOPp->io_addr))
+                                            ? (IData)(vlTOPp->I2C_Top__DOT__addr_read_write_bit)
+                                            : ((8U 
                                                 == (IData)(vlTOPp->io_addr))
-                                                ? (IData)(vlTOPp->I2C_Top__DOT__addr_data_ack)
+                                                ? vlTOPp->io_wdata
+                                                : (IData)(vlTOPp->I2C_Top__DOT__addr_read_write_bit))));
+    vlTOPp->I2C_Top__DOT___GEN_11 = (1U & ((0x10U == (IData)(vlTOPp->io_addr))
+                                            ? (IData)(vlTOPp->I2C_Top__DOT__addr_sda_in)
+                                            : ((8U 
+                                                == (IData)(vlTOPp->io_addr))
+                                                ? (IData)(vlTOPp->I2C_Top__DOT__addr_sda_in)
                                                 : (
-                                                   (0x14U 
+                                                   (0xcU 
                                                     == (IData)(vlTOPp->io_addr))
                                                     ? vlTOPp->io_wdata
-                                                    : (IData)(vlTOPp->I2C_Top__DOT__addr_data_ack)))));
-    vlTOPp->I2C_Top__DOT___GEN_9 = (1U & ((8U == (IData)(vlTOPp->io_addr))
-                                           ? vlTOPp->io_wdata
-                                           : (IData)(vlTOPp->I2C_Top__DOT__addr_read_write_bit)));
+                                                    : (IData)(vlTOPp->I2C_Top__DOT__addr_sda_in)))));
     vlTOPp->io_scl = (1U & ((~ (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__i2c_scl_enable)) 
                             | (~ (IData)(vlTOPp->clock))));
-    vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_51 = ((IData)(vlTOPp->reset)
+    vlTOPp->I2C_Top__DOT__i2c__DOT___GEN_59 = ((IData)(vlTOPp->reset)
                                                 ? 0U
                                                 : (
                                                    (0U 
@@ -461,15 +496,22 @@ VL_INLINE_OPT void VI2C_Top::_combo__TOP__3(VI2C_Top__Syms* __restrict vlSymsp) 
                                                       ((4U 
                                                         == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
                                                         ? 
-                                                       ((0U 
-                                                         == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count))
-                                                         ? 5U
-                                                         : 4U)
+                                                       ((IData)(vlTOPp->I2C_Top__DOT__addr_sda_in)
+                                                         ? 7U
+                                                         : 5U)
                                                         : 
                                                        ((5U 
                                                          == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
-                                                         ? 6U
-                                                         : 0U)))))));
+                                                         ? 
+                                                        ((0U 
+                                                          == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count))
+                                                          ? 6U
+                                                          : 5U)
+                                                         : 
+                                                        ((6U 
+                                                          == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
+                                                          ? 7U
+                                                          : 0U))))))));
     vlTOPp->io_sda = ((IData)(vlTOPp->reset) | ((0U 
                                                  == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
                                                 | ((1U 
@@ -491,18 +533,22 @@ VL_INLINE_OPT void VI2C_Top::_combo__TOP__3(VI2C_Top__Syms* __restrict vlSymsp) 
                                                         : 
                                                        ((4U 
                                                          == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
-                                                         ? 
-                                                        ((7U 
-                                                          >= (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count))
-                                                          ? 
-                                                         (0xffU 
-                                                          & ((IData)(vlTOPp->I2C_Top__DOT__addr_data) 
-                                                             >> (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count)))
-                                                          : 0U)
+                                                         ? (IData)(vlTOPp->I2C_Top__DOT__addr_sda_in)
                                                          : 
                                                         ((5U 
-                                                          != (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
-                                                         | (IData)(vlTOPp->I2C_Top__DOT__addr_data_ack))))))));
+                                                          == (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state))
+                                                          ? 
+                                                         ((7U 
+                                                           >= (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count))
+                                                           ? 
+                                                          (0xffU 
+                                                           & ((IData)(vlTOPp->I2C_Top__DOT__addr_data) 
+                                                              >> (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__count)))
+                                                           : 0U)
+                                                          : 
+                                                         ((6U 
+                                                           != (IData)(vlTOPp->I2C_Top__DOT__i2c__DOT__state)) 
+                                                          | (IData)(vlTOPp->I2C_Top__DOT__addr_sda_in)))))))));
 }
 
 void VI2C_Top::_eval(VI2C_Top__Syms* __restrict vlSymsp) {
@@ -558,6 +604,12 @@ void VI2C_Top::_eval_debug_assertions() {
         Verilated::overWidthError("reset");}
     if (VL_UNLIKELY((io_addr & 0x80U))) {
         Verilated::overWidthError("io_addr");}
+    if (VL_UNLIKELY((io_ren & 0xfeU))) {
+        Verilated::overWidthError("io_ren");}
+    if (VL_UNLIKELY((io_we & 0xfeU))) {
+        Verilated::overWidthError("io_we");}
+    if (VL_UNLIKELY((io_sda_in & 0xfeU))) {
+        Verilated::overWidthError("io_sda_in");}
 }
 #endif  // VL_DEBUG
 
@@ -568,6 +620,9 @@ void VI2C_Top::_ctor_var_reset() {
     reset = VL_RAND_RESET_I(1);
     io_wdata = VL_RAND_RESET_I(32);
     io_addr = VL_RAND_RESET_I(7);
+    io_ren = VL_RAND_RESET_I(1);
+    io_we = VL_RAND_RESET_I(1);
+    io_sda_in = VL_RAND_RESET_I(1);
     io_sda = VL_RAND_RESET_I(1);
     io_scl = VL_RAND_RESET_I(1);
     io_intr = VL_RAND_RESET_I(1);
@@ -575,19 +630,19 @@ void VI2C_Top::_ctor_var_reset() {
     I2C_Top__DOT__addr_slave_addr = VL_RAND_RESET_I(7);
     I2C_Top__DOT__addr_data = VL_RAND_RESET_I(8);
     I2C_Top__DOT__addr_read_write_bit = VL_RAND_RESET_I(1);
-    I2C_Top__DOT__addr_data_ack = VL_RAND_RESET_I(1);
-    I2C_Top__DOT___GEN_9 = VL_RAND_RESET_I(1);
+    I2C_Top__DOT__addr_sda_in = VL_RAND_RESET_I(1);
+    I2C_Top__DOT___GEN_9 = VL_RAND_RESET_I(8);
+    I2C_Top__DOT___GEN_10 = VL_RAND_RESET_I(1);
     I2C_Top__DOT___GEN_11 = VL_RAND_RESET_I(1);
     I2C_Top__DOT___GEN_12 = VL_RAND_RESET_I(1);
     I2C_Top__DOT___GEN_13 = VL_RAND_RESET_I(7);
-    I2C_Top__DOT___GEN_14 = VL_RAND_RESET_I(8);
     I2C_Top__DOT__i2c__DOT__state = VL_RAND_RESET_I(8);
     I2C_Top__DOT__i2c__DOT__count = VL_RAND_RESET_I(15);
     I2C_Top__DOT__i2c__DOT__i2c_scl_enable = VL_RAND_RESET_I(1);
     I2C_Top__DOT__i2c__DOT__intr_done = VL_RAND_RESET_I(1);
     I2C_Top__DOT__i2c__DOT___GEN_5 = VL_RAND_RESET_I(15);
-    I2C_Top__DOT__i2c__DOT___GEN_33 = VL_RAND_RESET_I(15);
-    I2C_Top__DOT__i2c__DOT___GEN_34 = VL_RAND_RESET_I(1);
-    I2C_Top__DOT__i2c__DOT___GEN_51 = VL_RAND_RESET_I(3);
+    I2C_Top__DOT__i2c__DOT___GEN_41 = VL_RAND_RESET_I(15);
+    I2C_Top__DOT__i2c__DOT___GEN_42 = VL_RAND_RESET_I(1);
+    I2C_Top__DOT__i2c__DOT___GEN_59 = VL_RAND_RESET_I(3);
     __Vm_traceActivity = 0;
 }

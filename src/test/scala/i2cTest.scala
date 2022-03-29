@@ -22,7 +22,7 @@ class i2cTest extends FreeSpec with ChiselScalatestTester {
 
 
         c.io.addr.poke("b1001110".U)   //poke address
-        c.io.read_write.poke(0.B)      // 0 for write data to slave
+        c.io.read_write.poke(0.B)      // 0 for write data to slave (read/write bit)
         c.io.start.poke(1.B)          // enable
         
 
@@ -57,7 +57,7 @@ class i2cTest extends FreeSpec with ChiselScalatestTester {
         & addr_bit5_peek.litValue == addr_bit5.litValue & addr_bit6_peek.litValue == addr_bit6.litValue
         & addr_bit7_peek.litValue == addr_bit7.litValue){
   
-          c.io.i2c_sda_in.poke(0.B)           // if address matches then send 0 ack means otherwise 1
+          c.io.i2c_sda_in.poke(0.B)           // if address matches then send 0 ack otherwise 1
           c.io.data.poke("b1101101".U)        //after address matches send data to slave for write in slave
           c.clock.step(8)
           c.io.i2c_sda_in.poke(0.B)           //send ACK bit when data received from master
@@ -71,18 +71,9 @@ class i2cTest extends FreeSpec with ChiselScalatestTester {
 
         //////////////// Slave Addr ACK bit //////////////////////
 
-
-
-
-
         c.clock.step(50)
         c.io.start.poke(0.B)
         c.clock.step(50)
-
-
-
-
-
 
     }
   }

@@ -1,6 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2c_master.scala:129:27: type mismatch;[0m
-[0m[[0m[31merror[0m] [0m[0m found   : Unit[0m
-[0m[[0m[31merror[0m] [0m[0m required: chisel3.Bool[0m
-[0m[[0m[31merror[0m] [0m[0m                    state :=  data_state[0m
-[0m[[0m[31merror[0m] [0m[0m                          ^[0m
+[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2c.scala:31:16: value we is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
+[0m[[0m[31merror[0m] [0m[0m    i2c_top.io.we := write_register[0m
+[0m[[0m[31merror[0m] [0m[0m               ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m

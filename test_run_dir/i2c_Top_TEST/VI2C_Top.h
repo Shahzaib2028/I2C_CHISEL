@@ -27,6 +27,9 @@ VL_MODULE(VI2C_Top) {
     VL_IN8(clock,0,0);
     VL_IN8(reset,0,0);
     VL_IN8(io_addr,6,0);
+    VL_IN8(io_ren,0,0);
+    VL_IN8(io_we,0,0);
+    VL_IN8(io_sda_in,0,0);
     VL_OUT8(io_sda,0,0);
     VL_OUT8(io_scl,0,0);
     VL_OUT8(io_intr,0,0);
@@ -38,20 +41,20 @@ VL_MODULE(VI2C_Top) {
     CData/*6:0*/ I2C_Top__DOT__addr_slave_addr;
     CData/*7:0*/ I2C_Top__DOT__addr_data;
     CData/*0:0*/ I2C_Top__DOT__addr_read_write_bit;
-    CData/*0:0*/ I2C_Top__DOT__addr_data_ack;
-    CData/*0:0*/ I2C_Top__DOT___GEN_9;
+    CData/*0:0*/ I2C_Top__DOT__addr_sda_in;
+    CData/*7:0*/ I2C_Top__DOT___GEN_9;
+    CData/*0:0*/ I2C_Top__DOT___GEN_10;
     CData/*0:0*/ I2C_Top__DOT___GEN_11;
     CData/*0:0*/ I2C_Top__DOT___GEN_12;
     CData/*6:0*/ I2C_Top__DOT___GEN_13;
-    CData/*7:0*/ I2C_Top__DOT___GEN_14;
     CData/*7:0*/ I2C_Top__DOT__i2c__DOT__state;
     CData/*0:0*/ I2C_Top__DOT__i2c__DOT__i2c_scl_enable;
     CData/*0:0*/ I2C_Top__DOT__i2c__DOT__intr_done;
-    CData/*0:0*/ I2C_Top__DOT__i2c__DOT___GEN_34;
-    CData/*2:0*/ I2C_Top__DOT__i2c__DOT___GEN_51;
+    CData/*0:0*/ I2C_Top__DOT__i2c__DOT___GEN_42;
+    CData/*2:0*/ I2C_Top__DOT__i2c__DOT___GEN_59;
     SData/*14:0*/ I2C_Top__DOT__i2c__DOT__count;
     SData/*14:0*/ I2C_Top__DOT__i2c__DOT___GEN_5;
-    SData/*14:0*/ I2C_Top__DOT__i2c__DOT___GEN_33;
+    SData/*14:0*/ I2C_Top__DOT__i2c__DOT___GEN_41;
     
     // LOCAL VARIABLES
     // Internals; generally not touched by application code

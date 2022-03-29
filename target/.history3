@@ -8,3 +8,4 @@
 1648468114656:testOnly i2c_Top_Test -- -DwriteVcd=1
 1648468288691:testOnly i2cHarnessTest -- -DwriteVcd=1
 1648532708522:testOnly i2cTest -- -DwriteVcd=1
+1648555975849:testOnly i2c_Top_Test -- -DwriteVcd=1
