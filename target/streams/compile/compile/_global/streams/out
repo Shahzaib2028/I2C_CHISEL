@@ -1,40 +1,6 @@
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2c.scala:3:8: not found: object caravan[0m
-[0m[[0m[31merror[0m] [0m[0mimport caravan.bus.common.{BusConfig, AbstrRequest, AbstrResponse}[0m
-[0m[[0m[31merror[0m] [0m[0m       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2c.scala:5:19: not found: type AbstrRequest[0m
-[0m[[0m[31merror[0m] [0m[0mclass i2c(val req:AbstrRequest, val rsp:AbstrResponse)(implicit val config:BusConfig) extends Module {[0m
-[0m[[0m[31merror[0m] [0m[0m                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2c.scala:5:41: not found: type AbstrResponse[0m
-[0m[[0m[31merror[0m] [0m[0mclass i2c(val req:AbstrRequest, val rsp:AbstrResponse)(implicit val config:BusConfig) extends Module {[0m
-[0m[[0m[31merror[0m] [0m[0m                                        ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2c.scala:5:76: not found: type BusConfig[0m
-[0m[[0m[31merror[0m] [0m[0mclass i2c(val req:AbstrRequest, val rsp:AbstrResponse)(implicit val config:BusConfig) extends Module {[0m
-[0m[[0m[31merror[0m] [0m[0m                                                                           ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2cHarness.scala:1:8: not found: object caravan[0m
-[0m[[0m[31merror[0m] [0m[0mimport caravan.bus.tilelink.{TLRequest, TLResponse, TilelinkConfig, TilelinkDevice, TilelinkHost}[0m
-[0m[[0m[31merror[0m] [0m[0m       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2cHarness.scala:2:8: not found: object caravan[0m
-[0m[[0m[31merror[0m] [0m[0mimport caravan.bus.wishbone.{WBRequest, WBResponse, WishboneConfig, WishboneDevice, WishboneHost}[0m
-[0m[[0m[31merror[0m] [0m[0m       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2cHarness.scala:8:39: not found: type WishboneConfig[0m
-[0m[[0m[31merror[0m] [0m[0mclass i2cHarness(implicit val config: WishboneConfig) extends Module {[0m
-[0m[[0m[31merror[0m] [0m[0m                                      ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2cHarness.scala:12:37: not found: type WBRequest[0m
-[0m[[0m[31merror[0m] [0m[0m    val req = Flipped(Decoupled(new WBRequest()))[0m
-[0m[[0m[31merror[0m] [0m[0m                                    ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2cHarness.scala:13:29: not found: type WBResponse[0m
-[0m[[0m[31merror[0m] [0m[0m    val rsp = Decoupled(new WBResponse())[0m
-[0m[[0m[31merror[0m] [0m[0m                            ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2cHarness.scala:22:32: not found: type WishboneHost[0m
-[0m[[0m[31merror[0m] [0m[0m  val hostAdapter = Module(new WishboneHost())[0m
-[0m[[0m[31merror[0m] [0m[0m                               ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2cHarness.scala:23:34: not found: type WishboneDevice[0m
-[0m[[0m[31merror[0m] [0m[0m  val deviceAdapter = Module(new WishboneDevice())[0m
-[0m[[0m[31merror[0m] [0m[0m                                 ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2cHarness.scala:24:40: not found: type WBRequest[0m
-[0m[[0m[31merror[0m] [0m[0m  val i2c_wrapper = Module(new i2c(new WBRequest(), new WBResponse()))[0m
-[0m[[0m[31merror[0m] [0m[0m                                       ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2cHarness.scala:24:57: not found: type WBResponse[0m
-[0m[[0m[31merror[0m] [0m[0m  val i2c_wrapper = Module(new i2c(new WBRequest(), new WBResponse()))[0m
-[0m[[0m[31merror[0m] [0m[0m                                                        ^[0m
-[0m[[0m[31merror[0m] [0m[0m13 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2c_master.scala:129:27: type mismatch;[0m
+[0m[[0m[31merror[0m] [0m[0m found   : Unit[0m
+[0m[[0m[31merror[0m] [0m[0m required: chisel3.Bool[0m
+[0m[[0m[31merror[0m] [0m[0m                    state :=  data_state[0m
+[0m[[0m[31merror[0m] [0m[0m                          ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

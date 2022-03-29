@@ -23,12 +23,12 @@ class i2c_master_api_t: public sim_api_t<VerilatorDataWrapper*> {
 
         sim_data.inputs.push_back(new VerilatorCData(&(dut->clock)));
         sim_data.inputs.push_back(new VerilatorCData(&(dut->reset)));
-        sim_data.inputs.push_back(new VerilatorCData(&(dut->io_data_ack)));
-        sim_data.inputs.push_back(new VerilatorCData(&(dut->io_ack)));
+        sim_data.inputs.push_back(new VerilatorCData(&(dut->io_i2c_sda_in)));
         sim_data.inputs.push_back(new VerilatorCData(&(dut->io_read_write)));
         sim_data.inputs.push_back(new VerilatorCData(&(dut->io_data)));
         sim_data.inputs.push_back(new VerilatorCData(&(dut->io_addr)));
         sim_data.inputs.push_back(new VerilatorCData(&(dut->io_start)));
+        sim_data.outputs.push_back(new VerilatorCData(&(dut->io_i2c_intr)));
         sim_data.outputs.push_back(new VerilatorCData(&(dut->io_stop)));
         sim_data.outputs.push_back(new VerilatorCData(&(dut->io_ready)));
         sim_data.outputs.push_back(new VerilatorCData(&(dut->io_i2c_scl)));
@@ -103,8 +103,7 @@ double sc_time_stamp () { return _Top_api->get_time_stamp(); }
 // Override Verilator definition so first $finish ends simulation
 // Note: VL_USER_FINISH needs to be defined when compiling Verilator code
 void vl_finish(const char* filename, int linenum, const char* hier) {
-  Verilated::runFlushCallbacks();
-Verilated::runExitCallbacks();
+  Verilated::flushCall();
 
   exit(0);
 }

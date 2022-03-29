@@ -9,8 +9,7 @@ class i2c_master extends Module{
         val addr = Input(UInt(7.W))
         val data = Input(UInt(8.W))
         val read_write = Input(Bool())
-        // val ack = Input(Bool())
-        // val data_ack = Input(Bool())
+        val i2c_sda_in = Input(Bool())
 
 
         val i2c_sda = Output(Bool())
@@ -22,7 +21,7 @@ class i2c_master extends Module{
     })
 
   
-    val idle_state :: start_state :: addr_state :: rw_state /*:: wack_state*/ :: data_state :: wack2_state :: stop_state :: Nil = Enum(7)
+    val idle_state :: start_state :: addr_state :: rw_state :: wack_state :: data_state :: wack2_state :: stop_state :: Nil = Enum(8)
     val state = RegInit(0.U(8.W))
     val count = RegInit(0.U(15.W))
     val saved_addr = RegInit(0.U(7.W))
@@ -105,20 +104,35 @@ class i2c_master extends Module{
                     io.i2c_sda := 0.B
                     io.ready := 0.B
                     io.stop := 0.B
-                    state := data_state
+                    state := wack_state
                     count := 8.U
                 }.otherwise{
                     io.i2c_sda := 1.B
                     io.ready := 0.B
                     io.stop := 0.B
-                    state := data_state
+                    state := wack_state
                     count := 7.U
                 }
 
             }
 
+            is(wack_state){
+                when(io.i2c_sda_in === 0.B){
+                io.i2c_sda := io.i2c_sda_in
+                io.ready := 0.B
+                io.stop := 0.B
+                state :=  data_state
+                }.otherwise{
+                    io.i2c_sda := io.i2c_sda_in
+                    io.ready := 0.B
+                    io.stop := 0.B
+                    state :=  stop_state
+                }
+
+            }
+
             is(data_state){
-                // io.i2c_sda := io.ack
+                //io.i2c_sda := io.i2c_sda_in
                 io.i2c_sda := io.data(count)
                 io.ready := 0.B
                 io.stop := 0.B
@@ -132,7 +146,7 @@ class i2c_master extends Module{
             }
 
             is(wack2_state){
-                // io.i2c_sda := io.data_ack
+                io.i2c_sda := io.i2c_sda_in
                 io.ready := 0.B
                 io.stop := 0.B
                 state := stop_state

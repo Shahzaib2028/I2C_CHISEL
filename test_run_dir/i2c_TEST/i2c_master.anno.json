@@ -1,11 +1,30 @@
 [
   {
     "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~i2c_master|i2c_master>io_i2c_sda",
+    "sources":[
+      "~i2c_master|i2c_master>reset",
+      "~i2c_master|i2c_master>io_addr",
+      "~i2c_master|i2c_master>io_read_write",
+      "~i2c_master|i2c_master>io_i2c_sda_in",
+      "~i2c_master|i2c_master>io_data"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
     "sink":"~i2c_master|i2c_master>io_ready",
     "sources":[
       "~i2c_master|i2c_master>reset",
       "~i2c_master|i2c_master>io_start",
-      "~i2c_master|i2c_master>io_read_write"
+      "~i2c_master|i2c_master>io_read_write",
+      "~i2c_master|i2c_master>io_i2c_sda_in"
+    ]
+  },
+  {
+    "class":"firrtl.transforms.CombinationalPath",
+    "sink":"~i2c_master|i2c_master>io_i2c_scl",
+    "sources":[
+      "~i2c_master|i2c_master>clock"
     ]
   },
   {
@@ -14,23 +33,8 @@
     "sources":[
       "~i2c_master|i2c_master>reset",
       "~i2c_master|i2c_master>io_start",
-      "~i2c_master|i2c_master>io_read_write"
-    ]
-  },
-  {
-    "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~i2c_master|i2c_master>io_i2c_sda",
-    "sources":[
-      "~i2c_master|i2c_master>reset",
       "~i2c_master|i2c_master>io_read_write",
-      "~i2c_master|i2c_master>io_data_ack"
-    ]
-  },
-  {
-    "class":"firrtl.transforms.CombinationalPath",
-    "sink":"~i2c_master|i2c_master>io_i2c_scl",
-    "sources":[
-      "~i2c_master|i2c_master>clock"
+      "~i2c_master|i2c_master>io_i2c_sda_in"
     ]
   },
   {

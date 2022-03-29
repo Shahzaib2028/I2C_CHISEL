@@ -1,9 +1,9 @@
 i2c_master-harness.o: \
-  /Users/shahzaib/I2C_CHISEL/test_run_dir/i2c_TEST/i2c_master-harness.cpp \
-  Vi2c_master.h \
-  /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilated_heavy.h \
-  /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilated.h \
-  /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilatedos.h \
-  veri_api.h sim_api.h \
-  /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilated_vcd_c.h \
-  /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilated_trace.h
+ /home/shahzaib/Desktop/I2C_CHISEL/test_run_dir/i2c_TEST/i2c_master-harness.cpp \
+ Vi2c_master.h /usr/share/verilator/include/verilated.h \
+ /usr/share/verilator/include/verilatedos.h \
+ /home/shahzaib/Desktop/I2C_CHISEL/test_run_dir/i2c_TEST/Vi2c_master.h \
+ /home/shahzaib/Desktop/I2C_CHISEL/test_run_dir/i2c_TEST/veri_api.h \
+ /home/shahzaib/Desktop/I2C_CHISEL/test_run_dir/i2c_TEST/sim_api.h \
+ /usr/share/verilator/include/verilated_vcd_c.h \
+ /usr/share/verilator/include/verilated.h

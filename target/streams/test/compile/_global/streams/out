@@ -1,7 +1,22 @@
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2cTest.scala:27:18: value ack is not a member of chisel3.Bundle{val start: chisel3.Bool; val addr: chisel3.UInt; val data: chisel3.UInt; val read_write: chisel3.Bool; val i2c_sda: chisel3.Bool; val i2c_scl: chisel3.Bool; val ready: chisel3.Bool; val stop: chisel3.Bool; val i2c_intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m            c.io.ack.poke(0.B)[0m
-[0m[[0m[31merror[0m] [0m[0m                 ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2cTest.scala:34:18: value data_ack is not a member of chisel3.Bundle{val start: chisel3.Bool; val addr: chisel3.UInt; val data: chisel3.UInt; val read_write: chisel3.Bool; val i2c_sda: chisel3.Bool; val i2c_scl: chisel3.Bool; val ready: chisel3.Bool; val stop: chisel3.Bool; val i2c_intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m            c.io.data_ack.poke(0.B)[0m
-[0m[[0m[31merror[0m] [0m[0m                 ^[0m
-[0m[[0m[31merror[0m] [0m[0mtwo errors found[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2cTest.scala:50:36: comparing values of types scala.math.BigInt and chisel3.Bool using `==' will always yield false[0m
+[0m[[0m[33mwarn[0m] [0m[0m        if(addr_bit1_peek.litValue == addr_bit1 && addr_bit2_peek.litValue == addr_bit2 [0m
+[0m[[0m[33mwarn[0m] [0m[0m                                   ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2cTest.scala:50:76: comparing values of types scala.math.BigInt and chisel3.Bool using `==' will always yield false[0m
+[0m[[0m[33mwarn[0m] [0m[0m        if(addr_bit1_peek.litValue == addr_bit1 && addr_bit2_peek.litValue == addr_bit2 [0m
+[0m[[0m[33mwarn[0m] [0m[0m                                                                           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2cTest.scala:51:36: comparing values of types scala.math.BigInt and chisel3.Bool using `==' will always yield false[0m
+[0m[[0m[33mwarn[0m] [0m[0m        && addr_bit3_peek.litValue == addr_bit3 && addr_bit4_peek.litValue == addr_bit4[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                   ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2cTest.scala:51:76: comparing values of types scala.math.BigInt and chisel3.Bool using `==' will always yield false[0m
+[0m[[0m[33mwarn[0m] [0m[0m        && addr_bit3_peek.litValue == addr_bit3 && addr_bit4_peek.litValue == addr_bit4[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                                                           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2cTest.scala:52:36: comparing values of types scala.math.BigInt and chisel3.Bool using `==' will always yield false[0m
+[0m[[0m[33mwarn[0m] [0m[0m        && addr_bit5_peek.litValue == addr_bit5 && addr_bit6_peek.litValue == addr_bit6[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                   ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2cTest.scala:52:76: comparing values of types scala.math.BigInt and chisel3.Bool using `==' will always yield false[0m
+[0m[[0m[33mwarn[0m] [0m[0m        && addr_bit5_peek.litValue == addr_bit5 && addr_bit6_peek.litValue == addr_bit6[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                                                           ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2cTest.scala:53:36: comparing values of types scala.math.BigInt and chisel3.Bool using `==' will always yield false[0m
+[0m[[0m[33mwarn[0m] [0m[0m        && addr_bit7_peek.litValue == addr_bit7){[0m
+[0m[[0m[33mwarn[0m] [0m[0m                                   ^[0m
+[0m[[0m[33mwarn[0m] [0m[0m7 warnings found[0m
