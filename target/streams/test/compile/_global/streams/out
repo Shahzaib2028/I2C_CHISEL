@@ -1,43 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:113:22: value i2c_sda is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda_in: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m        println(c.io.i2c_sda.peek())[0m
-[0m[[0m[31merror[0m] [0m[0m                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:114:35: value i2c_sda is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda_in: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m        val addr_bit1_peek = c.io.i2c_sda.peek()        //peek address bits from sda output[0m
-[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:116:22: value i2c_sda is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda_in: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m        println(c.io.i2c_sda.peek())[0m
-[0m[[0m[31merror[0m] [0m[0m                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:117:35: value i2c_sda is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda_in: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m        val addr_bit2_peek = c.io.i2c_sda.peek()[0m
-[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:119:22: value i2c_sda is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda_in: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m        println(c.io.i2c_sda.peek())[0m
-[0m[[0m[31merror[0m] [0m[0m                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:120:35: value i2c_sda is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda_in: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m        val addr_bit3_peek = c.io.i2c_sda.peek()[0m
-[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:122:22: value i2c_sda is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda_in: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m        println(c.io.i2c_sda.peek())[0m
-[0m[[0m[31merror[0m] [0m[0m                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:123:35: value i2c_sda is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda_in: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m        val addr_bit4_peek = c.io.i2c_sda.peek()[0m
-[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:125:22: value i2c_sda is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda_in: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m        println(c.io.i2c_sda.peek())[0m
-[0m[[0m[31merror[0m] [0m[0m                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:126:35: value i2c_sda is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda_in: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m        val addr_bit5_peek = c.io.i2c_sda.peek()[0m
-[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:128:22: value i2c_sda is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda_in: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m        println(c.io.i2c_sda.peek())[0m
-[0m[[0m[31merror[0m] [0m[0m                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:129:35: value i2c_sda is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda_in: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m        val addr_bit6_peek = c.io.i2c_sda.peek()[0m
-[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:131:22: value i2c_sda is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda_in: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m        println(c.io.i2c_sda.peek())[0m
-[0m[[0m[31merror[0m] [0m[0m                     ^[0m
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2c_Top_Test.scala:132:35: value i2c_sda is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda_in: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m        val addr_bit7_peek = c.io.i2c_sda.peek()[0m
-[0m[[0m[31merror[0m] [0m[0m                                  ^[0m
-[0m[[0m[31merror[0m] [0m[0m14 errors found[0m
+[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/test/scala/i2cHarnessTest.scala:352:10: ')' expected but '.' found.[0m
+[0m[[0m[31merror[0m] [0m[0m        c.clock.step(100)[0m
+[0m[[0m[31merror[0m] [0m[0m         ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

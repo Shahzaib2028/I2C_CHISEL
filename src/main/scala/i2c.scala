@@ -6,7 +6,7 @@ class i2c(val req:AbstrRequest, val rsp:AbstrResponse)(implicit val config:BusCo
     val io = IO(new Bundle{
         val request = Flipped(Decoupled(req))   // req aaygi
         val response = Decoupled(rsp)           // resp jaayga
-        //val cio_uart_rx_i = Input(Bool())
+        val cio_i2c_sda_in = Input(Bool())
 
         val cio_i2c_sda = Output(Bool())
         val cio_i2c_scl = Output(Bool())
@@ -34,6 +34,8 @@ class i2c(val req:AbstrRequest, val rsp:AbstrResponse)(implicit val config:BusCo
     io.response.bits.dataResponse := RegNext(Mux(io.response.ready , i2c_top.io.wdata , 0.U))
     io.response.valid := RegNext(Mux(write_register || read_register, true.B, false.B))
     io.response.bits.error := RegNext(Mux(io.response.ready , i2c_top.io.intr , 0.U))
+
+    i2c_top.io.sda_in := io.cio_i2c_sda_in
 
     io.cio_i2c_sda := i2c_top.io.sda
     io.cio_i2c_scl := i2c_top.io.scl

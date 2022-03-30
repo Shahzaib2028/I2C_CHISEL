@@ -1,14 +1,14 @@
-[0m[[0m[0mdebug[0m] [0m[0m> Exec(testOnly i2c_Top_Test -- -DwriteVcd=1, Some(fea7cfda-e2f2-46b3-8ae2-9c92445bd09b), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(testOnly i2cHarnessTest -- -DwriteVcd=1, Some(c2118d8d-edc1-44cc-a6d8-1c69d65822a9), Some(CommandSource(console0)))[0m
 [0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / testOnly[0m
 [0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /home/shahzaib/Desktop/I2C_CHISEL/target/scala-2.12/classes ...[0m
 [0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /home/shahzaib/Desktop/I2C_CHISEL/target/scala-2.12/test-classes ...[0m
-[0m[[0m[0minfo[0m] [0m[0m[32mi2c_Top_Test:[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[32m- i2c Top TEST[0m[0m
-[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 6 seconds, 308 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mi2cHarnessTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- I2C HARNESS TEST[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 16 seconds, 73 milliseconds.[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 1[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 1, failed 0, canceled 0, ignored 0, pending 0[0m[0m
 [0m[[0m[0minfo[0m] [0m[0m[32mAll tests passed.[0m[0m
-[0m[[0m[32msuccess[0m] [0m[0mTotal time: 7 s, completed Mar 29, 2022, 5:45:36 PM[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 28 s, completed Mar 30, 2022, 11:44:13 AM[0m
 [0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
-[0m[[0m[0minfo[0m] [0m[0mshutting down sbt server[0m
