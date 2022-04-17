@@ -1,0 +1,13 @@
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(testOnly topTest -- -DwriteVcd=1, Some(963b7732-522a-4d77-9e01-bfd68c6193dd), Some(CommandSource(console0)))[0m
+[0m[[0m[0mdebug[0m] [0m[0mEvaluating tasks: Test / testOnly[0m
+[0m[[0m[0mdebug[0m] [0m[0mRunning task... Cancel: Signal, check cycles: false, forcegc: true[0m
+[0m[[0m[0minfo[0m] [0m[0mcompiling 1 Scala source to /Users/shahzaib/I2C_CHISEL/target/scala-2.12/classes ...[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mtopTest:[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32m- I2C Test[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mRun completed in 6 seconds, 93 milliseconds.[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTotal number of tests run: 1[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mSuites: completed 1, aborted 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[36mTests: succeeded 1, failed 0, canceled 0, ignored 0, pending 0[0m[0m
+[0m[[0m[0minfo[0m] [0m[0m[32mAll tests passed.[0m[0m
+[0m[[0m[32msuccess[0m] [0m[0mTotal time: 9 s, completed 17-Apr-2022, 6:05:22 PM[0m
+[0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m

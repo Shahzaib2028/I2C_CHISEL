@@ -11,3 +11,4 @@
 [0m[[0m[0minfo[0m] [0m[0m[32mAll tests passed.[0m[0m
 [0m[[0m[32msuccess[0m] [0m[0mTotal time: 8 s, completed 27-Mar-2022, 5:10:28 PM[0m
 [0m[[0m[0mdebug[0m] [0m[0m> Exec(shell, None, None)[0m
+[0m[[0m[0minfo[0m] [0m[0mshutting down sbt server[0m

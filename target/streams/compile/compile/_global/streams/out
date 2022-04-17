@@ -1,4 +1,4 @@
-[0m[[0m[31merror[0m] [0m[0m/home/shahzaib/Desktop/I2C_CHISEL/src/main/scala/i2c.scala:31:16: value we is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val intr: chisel3.Bool}[0m
-[0m[[0m[31merror[0m] [0m[0m    i2c_top.io.we := write_register[0m
-[0m[[0m[31merror[0m] [0m[0m               ^[0m
+[0m[[0m[31merror[0m] [0m[0m/Users/shahzaib/I2C_CHISEL/src/main/scala/i2c.scala:34:81: value data_out is not a member of chisel3.Bundle{val wdata: chisel3.UInt; val addr: chisel3.UInt; val ren: chisel3.Bool; val we: chisel3.Bool; val sda: chisel3.Bool; val scl: chisel3.Bool; val ready: chisel3.Bool; val stop: chisel3.Bool; val intr: chisel3.Bool}[0m
+[0m[[0m[31merror[0m] [0m[0m    io.response.bits.dataResponse := RegNext(Mux(io.response.ready , i2c_top.io.data_out , 0.U))[0m
+[0m[[0m[31merror[0m] [0m[0m                                                                                ^[0m
 [0m[[0m[31merror[0m] [0m[0mone error found[0m
