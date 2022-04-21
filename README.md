@@ -31,9 +31,14 @@ Caravan intends to be equipped with a fully fledged API for easily creating open
 ## OUTPUT
 
 Testing I2C by Master writing data to slave
+
 slave address = 1100011
+
 data to write on slave = 10111001
 
-![Screenshot](output)
+io.data_out is the slave register on which data has been written succussfully.
+
+
+![Screenshot](Output.png)
 
 
