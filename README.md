@@ -28,4 +28,12 @@ Caravan intends to be equipped with a fully fledged API for easily creating open
 
 ![myimage-alt-tag](https://cdn.sparkfun.com/assets/learn_tutorials/8/2/I2C_Basic_Address_and_Data_Frames.jpg)
 
+## OUTPUT
+
+Testing I2C by Master writing data to slave
+slave address = 1100011
+data to write on slave = 10111001
+
+![Screenshot](output)
+
 
