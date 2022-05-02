@@ -1,14 +1,14 @@
 
-#include "VI2C_Top.h"
+#include "Vi2c_master.h"
 #include "verilated.h"
 #include "veri_api.h"
 #if VM_TRACE
 #include "verilated_vcd_c.h"
 #endif
 #include <iostream>
-class I2C_Top_api_t: public sim_api_t<VerilatorDataWrapper*> {
+class i2c_master_api_t: public sim_api_t<VerilatorDataWrapper*> {
     public:
-    I2C_Top_api_t(VI2C_Top* _dut) {
+    i2c_master_api_t(Vi2c_master* _dut) {
         dut = _dut;
         main_time = 0L;
         is_exit = false;
@@ -23,18 +23,18 @@ class I2C_Top_api_t: public sim_api_t<VerilatorDataWrapper*> {
 
         sim_data.inputs.push_back(new VerilatorCData(&(dut->clock)));
         sim_data.inputs.push_back(new VerilatorCData(&(dut->reset)));
-        sim_data.inputs.push_back(new VerilatorCData(&(dut->io_we)));
-        sim_data.inputs.push_back(new VerilatorCData(&(dut->io_ren)));
+        sim_data.inputs.push_back(new VerilatorCData(&(dut->io_i2c_sda_in)));
+        sim_data.inputs.push_back(new VerilatorCData(&(dut->io_read_write)));
+        sim_data.inputs.push_back(new VerilatorCData(&(dut->io_data)));
         sim_data.inputs.push_back(new VerilatorCData(&(dut->io_addr)));
-        sim_data.inputs.push_back(new VerilatorIData(&(dut->io_wdata)));
-        sim_data.outputs.push_back(new VerilatorCData(&(dut->io_intr)));
-        sim_data.outputs.push_back(new VerilatorCData(&(dut->io_data_out)));
+        sim_data.inputs.push_back(new VerilatorCData(&(dut->io_start)));
+        sim_data.outputs.push_back(new VerilatorCData(&(dut->io_i2c_intr)));
         sim_data.outputs.push_back(new VerilatorCData(&(dut->io_stop)));
         sim_data.outputs.push_back(new VerilatorCData(&(dut->io_ready)));
-        sim_data.outputs.push_back(new VerilatorCData(&(dut->io_scl)));
-        sim_data.outputs.push_back(new VerilatorCData(&(dut->io_sda)));
+        sim_data.outputs.push_back(new VerilatorCData(&(dut->io_i2c_scl)));
+        sim_data.outputs.push_back(new VerilatorCData(&(dut->io_i2c_sda)));
         sim_data.signals.push_back(new VerilatorCData(&(dut->reset)));
-        sim_data.signal_map["I2C_Top.reset"] = 0;
+        sim_data.signal_map["i2c_master.reset"] = 0;
     }
 #if VM_TRACE
      void init_dump(VerilatedVcdC* _tfp) { tfp = _tfp; }
@@ -47,7 +47,7 @@ class I2C_Top_api_t: public sim_api_t<VerilatorDataWrapper*> {
     }
 
     private:
-    VI2C_Top* dut;
+    Vi2c_master* dut;
     bool is_exit;
     vluint64_t main_time;
 #if VM_TRACE
@@ -97,7 +97,7 @@ class I2C_Top_api_t: public sim_api_t<VerilatorDataWrapper*> {
 
 // The following isn't strictly required unless we emit (possibly indirectly) something
 // requiring a time-stamp (such as an assert).
-static I2C_Top_api_t * _Top_api;
+static i2c_master_api_t * _Top_api;
 double sc_time_stamp () { return _Top_api->get_time_stamp(); }
 
 // Override Verilator definition so first $finish ends simulation
@@ -111,8 +111,8 @@ Verilated::runExitCallbacks();
 
 int main(int argc, char **argv, char **env) {
     Verilated::commandArgs(argc, argv);
-    VI2C_Top* top = new VI2C_Top;
-    std::string vcdfile = "test_run_dir/I2C_Test/I2C_Top.vcd";
+    Vi2c_master* top = new Vi2c_master;
+    std::string vcdfile = "test_run_dir/i2c_TEST/i2c_master.vcd";
     std::vector<std::string> args(argv+1, argv+argc);
     std::vector<std::string>::const_iterator it;
     for (it = args.begin() ; it != args.end() ; it++) {
@@ -127,7 +127,7 @@ int main(int argc, char **argv, char **env) {
     top->trace(tfp, 99);
     tfp->open(vcdfile.c_str());
 #endif
-    I2C_Top_api_t api(top);
+    i2c_master_api_t api(top);
     _Top_api = &api; /* required for sc_time_stamp() */
     api.init_sim_data();
     api.init_channels();
@@ -141,8 +141,8 @@ int main(int argc, char **argv, char **env) {
 #endif
 #if VM_COVERAGE
     VL_PRINTF("Writing Coverage..");
-    Verilated::mkdir("test_run_dir/I2C_Test/logs");
-    VerilatedCov::write("test_run_dir/I2C_Test/logs/coverage.dat");
+    Verilated::mkdir("test_run_dir/i2c_TEST/logs");
+    VerilatedCov::write("test_run_dir/i2c_TEST/logs/coverage.dat");
 #endif
     delete top;
     exit(0);

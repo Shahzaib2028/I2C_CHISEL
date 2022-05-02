@@ -2,9 +2,9 @@
 # DESCRIPTION: Verilator output: Makefile for building Verilated archive or executable
 #
 # Execute this makefile from the object directory:
-#    make -f VI2C_Top.mk
+#    make -f Vi2c_master.mk
 
-default: VI2C_Top
+default: Vi2c_master
 
 ### Constants...
 # Perl executable (from $PERL)
@@ -28,39 +28,39 @@ VM_SC_TARGET_ARCH = linux
 
 ### Vars...
 # Design prefix (from --prefix)
-VM_PREFIX = VI2C_Top
+VM_PREFIX = Vi2c_master
 # Module prefix (from --prefix)
-VM_MODPREFIX = VI2C_Top
+VM_MODPREFIX = Vi2c_master
 # User CFLAGS (from -CFLAGS on Verilator command line)
 VM_USER_CFLAGS = \
-	-Wno-undefined-bool-conversion -O1 -DTOP_TYPE=VI2C_Top -DVL_USER_FINISH -include VI2C_Top.h \
+	-Wno-undefined-bool-conversion -O1 -DTOP_TYPE=Vi2c_master -DVL_USER_FINISH -include Vi2c_master.h \
 
 # User LDLIBS (from -LDFLAGS on Verilator command line)
 VM_USER_LDLIBS = \
 
 # User .cpp files (from .cpp's on Verilator command line)
 VM_USER_CLASSES = \
-	I2C_Top-harness \
+	i2c_master-harness \
 
 # User .cpp directories (from .cpp's on Verilator command line)
 VM_USER_DIR = \
-	/Users/shahzaib/I2C_CHISEL/test_run_dir/I2C_Test \
+	/Users/shahzaib/I2C_CHISEL/test_run_dir/i2c_TEST \
 
 
 ### Default rules...
 # Include list of all generated classes
-include VI2C_Top_classes.mk
+include Vi2c_master_classes.mk
 # Include global rules
 include $(VERILATOR_ROOT)/include/verilated.mk
 
 ### Executable rules... (from --exe)
 VPATH += $(VM_USER_DIR)
 
-I2C_Top-harness.o: /Users/shahzaib/I2C_CHISEL/test_run_dir/I2C_Test/I2C_Top-harness.cpp
+i2c_master-harness.o: /Users/shahzaib/I2C_CHISEL/test_run_dir/i2c_TEST/i2c_master-harness.cpp
 	$(OBJCACHE) $(CXX) $(CXXFLAGS) $(CPPFLAGS) $(OPT_FAST) -c -o $@ $<
 
 ### Link rules... (from --exe)
-VI2C_Top: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a $(VM_HIER_LIBS)
+Vi2c_master: $(VK_USER_OBJS) $(VK_GLOBAL_OBJS) $(VM_PREFIX)__ALL.a $(VM_HIER_LIBS)
 	$(LINK) $(LDFLAGS) $^ $(LOADLIBES) $(LDLIBS) $(LIBS) $(SC_LIBS) -o $@
 
 

@@ -1,6 +1,6 @@
 verilated.o: \
   /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilated.cpp \
-  Vi2c_master.h \
+  VI2C_Top.h \
   /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilated_heavy.h \
   /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilated.h \
   /opt/homebrew/Cellar/verilator/4.200/share/verilator/include/verilatedos.h \

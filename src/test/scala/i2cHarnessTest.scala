@@ -50,18 +50,6 @@
 //         c.io.request.valid.poke(0.B)
 //         c.clock.step(1)
 
-//         //send data to slave for write in slave
-//         c.io.request.bits.addrRequest.poke(16.U)
-//         c.clock.step(1)
-//         c.io.request.bits.dataRequest.poke(109.U) //01101101
-//         c.clock.step(1)
-//         c.io.request.valid.poke(1.B)
-//         c.clock.step(1)
-//         // c.io.request.bits.isWrite.poke(0.B)
-//         c.io.request.valid.poke(0.B)
-//         c.clock.step(1)
-
-
 //         //start/enable transmission
 //         c.io.request.bits.addrRequest.poke(0.U)
 //         c.clock.step(1)
@@ -73,6 +61,11 @@
 //         // c.io.request.bits.isWrite.poke(0.B)
 //         c.io.request.valid.poke(0.B)
 //         c.clock.step(1)
+
+        
+
+
+        
 
 
 //         //////////////// Slave Addr ACK bit //////////////////////
@@ -105,6 +98,7 @@
 //         & addr_bit7_peek.litValue == addr_bit7.litValue){
   
 //           // if address matches then send 0 ack otherwise 1
+//         //   c.clock.step(8)
 //           c.io.request.bits.addrRequest.poke(12.U)
 //           c.clock.step(1)
 //           c.io.request.bits.dataRequest.poke(0.U)
@@ -114,6 +108,17 @@
 //           // c.io.request.bits.isWrite.poke(0.B)
 //           c.io.request.valid.poke(0.B)
 //           c.clock.step(1)
+
+//         //send data to slave for write in slave
+//         c.io.request.bits.addrRequest.poke(16.U)
+//         c.clock.step(1)
+//         c.io.request.bits.dataRequest.poke(109.U) //01101101
+//         c.clock.step(1)
+//         c.io.request.valid.poke(1.B)
+//         c.clock.step(1)
+//         // c.io.request.bits.isWrite.poke(0.B)
+//         c.io.request.valid.poke(0.B)
+//         c.clock.step(1)
 
 
          
@@ -132,6 +137,18 @@
 //           c.clock.step(1)
 //           println("Address matches")
 
+//           //start/enable transmission
+//         c.io.request.bits.addrRequest.poke(0.U)
+//         c.clock.step(1)
+//         c.io.request.bits.dataRequest.poke(0.U)
+//         c.clock.step(1)
+//         // c.io.request.bits.isWrite.poke(1.B)
+//         c.io.request.valid.poke(1.B)
+//         c.clock.step(1)
+//         // c.io.request.bits.isWrite.poke(0.B)
+//         c.io.request.valid.poke(0.B)
+//         c.clock.step(1)
+
 //         } else{
 //           //if address not matches with the slave address, slave send NACK 1 
 //           c.io.request.bits.addrRequest.poke(12.U)
@@ -144,6 +161,18 @@
 //           c.io.request.valid.poke(0.B)
 //           c.clock.step(1)
 //           println("Address not matches")
+
+//           //start/enable transmission
+//         c.io.request.bits.addrRequest.poke(0.U)
+//         c.clock.step(1)
+//         c.io.request.bits.dataRequest.poke(0.U)
+//         c.clock.step(1)
+//         // c.io.request.bits.isWrite.poke(1.B)
+//         c.io.request.valid.poke(1.B)
+//         c.clock.step(1)
+//         // c.io.request.bits.isWrite.poke(0.B)
+//         c.io.request.valid.poke(0.B)
+//         c.clock.step(1)
 //         }
 
 //         c.io.request.bits.isWrite.poke(0.B)  //write disable
